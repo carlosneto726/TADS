@@ -1,0 +1,34 @@
+div.menu{
+    width: 150px;
+    float: left;
+}
+div.espaco{
+    width: 200px;
+    float: left;
+}
+div.espaco2{
+    width: 445px;
+    float: left;
+}
+div.txt{
+    width: 1500px;
+    float: left;
+}
+
+div.redes{
+    width: 50px; 
+    float: left;
+}
+
+li{
+    display: inline;
+
+}
+nav{
+    margin-left: 1250px;
+}
+
+
+
+
+

@@ -1,0 +1,45 @@
+header{
+    display: flex;
+    flex-flow: col wrap;
+    background-color: #eef0f1;
+}
+figure{
+    width: 20%;
+}
+div.titulos{
+    width: 70%;
+}
+nav{
+    background-color: #c0c0c0;
+
+}
+.superior ul{
+    list-style-type: none;
+
+}
+.superior ul li{
+    display: inline;
+}
+.superior ul li a{
+    color: #555555;
+    text-decoration: none;
+    padding: 5px 20px;
+}
+.superior ul li a:hover{
+    color: pink;
+    background-color: #555555;
+}
+marquee{
+    width: 1328px;
+    display: block;
+}
+.vertical{
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+} 
+section{
+    display: inline-block;
+    vertical-align: top;
+
+}

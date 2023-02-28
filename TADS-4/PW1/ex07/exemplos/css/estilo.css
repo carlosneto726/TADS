@@ -1,0 +1,25 @@
+:root{
+    --fundo: green;
+    --itens: yellow;
+    --bordas: blue;   
+}
+
+section{
+    display: grid;
+    grid-gap: 20px 100px;
+    background-color: var(--fundo);
+    grid-template-columns: 20% 20% 60%;
+    grid-template-rows: 30% 70%;
+
+}
+article{
+    background-color: var(--itens);
+    border: 2px dotted var(--bordas);
+}
+article.um{
+    grid-area: 1/3 4/6;
+}
+
+article.tres{
+    grid-column-end: span 2;
+}

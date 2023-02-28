@@ -1,0 +1,63 @@
+h1{
+	color: blue;
+  }
+h1#principal,h1#segundo{
+	color: red;
+  }
+  
+p{
+	color: green;
+ }
+.menu{
+	color: red;
+	border: 2px solid blue;
+ }
+.menu li{
+	color: red;
+	border: 2px solid red;
+  }
+.menu li a{
+	color: red;
+	border: 2px solid green;
+  }
+.pagina1{
+	color: red;
+	border: 2px solid yellow;
+ }
+.pagina1 li{
+	color: red;
+	border: 2px solid grey;
+  }
+.pagina1 li a{
+	color: red;
+	border: 2px solid pink;
+  }
+header{
+	color: red;
+	border: 2px solid hotpink;
+	height: 200px;
+  }
+nav{
+	color: red;
+	border: 2px solid orange;
+	height: 500px;
+	width: 20%;
+	float: left;
+  }
+section{
+	color: red;
+	border: 2px solid gray;
+	height: 75%;
+	width: 1000px;
+	margin-left: 400px
+  }
+article{
+	color: red;
+	border: 2px solid green;
+	height: 200px;
+  }
+footer{
+	color: red;
+	border: 2px solid red;
+	height: 15s0px;
+  }

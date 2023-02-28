@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Correcao2</title>
+</head>
+<body>
+    <center><h1>Cadastro de pessoas</h1></center>
+    <form>
+        <p>
+            <label>Nome:</label>
+            <input type="text" name="txtNome" autofocus required/>
+        </p>
+        <p>
+            <label>Senha:</label>
+            <input type="password" name="txtSenha" maxlength="8"/>
+        </p>
+        <p>
+            <label>Sexo:</label><br/>
+            <input type="radio" name="rbSexo"/><label>Masculino</label>
+            <input type="radio" name="rbSexo"/><label>Feminino</label>
+            <input type="radio" name="rbSexo"/><label>Outro</label>
+        </p>
+        <p>
+            <label>Quais navegadores voce ultiliza?</label>
+            <input type="checkbox" name="chkChrome"/><label>Chrome</label><br/>
+            <input type="checkbox" name="chkChrome"/><label>Intenet Explorer</label><br/>
+            <input type="checkbox" name="chkChrome"/><label>FireFox</label><br/>
+            <input type="checkbox" name="chkChrome"/><label>Opera</label><br/>
+        </p>
+        <p>
+            <label>Qual estado brasileiro voce reside?</label>
+            <select>
+                <option>AC</option>
+                <option selected>MS</option>
+            </select>
+        </p>
+        <p>
+            <label>Qual sua data de nascimento?</label>
+            <input type="date"/>
+        </p>
+        <p>
+            <label>Deixe uma breve descricao sobre voce:</label><br/>
+            <textarea cols="50" rows="10"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Enviar"/>
+            <input type="reset" value="Limpar"/>
+        </p>
+
+    </form>
+    
+</body>
+</html>

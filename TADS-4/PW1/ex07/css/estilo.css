@@ -1,0 +1,56 @@
+:root{
+    --fundo: #303841;
+    --itens: #075845;
+    --bordas: #22262A;   
+}
+body{
+    display: grid;
+    grid-template-areas: 'header header header' 'nav section aside' 'footer footer footer';
+}
+header{
+    background-color: var(--itens);
+    grid-area: header;
+    color: white;
+}
+header ul{
+    list-style-type: none;
+}
+header ul a{
+    text-decoration: none;
+    color: white;
+}
+nav{
+    background-color: var(--fundo);
+    grid-area: nav;
+    padding-right: 25px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+nav ul{
+    list-style-type: none;
+
+}
+section{
+    background-color: var(--bordas);
+    grid-area: section;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+section h1{
+    grid-column: 1/span2;
+    color: white;
+}
+article{
+    background-color: gray;
+}
+aside{
+    background-color: #DCB95D;
+    grid-area: aside;
+}
+footer{
+    background-color: var(--itens);
+    grid-area: footer;
+    color: white;
+}

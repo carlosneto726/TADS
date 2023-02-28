@@ -1,0 +1,75 @@
+body{
+    background-image: url(../imagens/matheus.jpg);
+    background-repeat: no-repeat;
+    background-size: 45%;
+    background-attachment: scroll;
+    background-position: top right;
+}
+header{
+    background-color: hotpink;
+    margin-right:828px ;
+    font-size: 35px;
+}
+section{
+    background-color: blue;
+    margin-right:828px ;
+    font-size: 40px;
+}
+article{
+    background-color: green;
+    opacity: 0.8;
+    font-size: 30px;
+}
+
+p::first-line{
+    color: blue;
+    font-size: 24pt;
+}
+footer{
+    background-color: yellow;
+    margin-right:828px ;
+    font-size: 25px;
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+li{
+    display: inline;
+}
+li#blank-li{
+    color: green;
+}
+nav{
+    height: 70px;
+    background-color: gray;
+}
+nav ul{
+    background-color: yellow;
+    padding: 10px 30px;
+}
+
+nav ul li{
+    display: inline;
+    border: 2px solid red;
+    padding: 5px 50px;
+}
+nav ul li a.ativado{
+    background-color: darkmagenta;
+    color: aqua;
+}
+nav ul li a{
+    text-decoration: none;
+    border: 5px solid blue;
+    padding: 5px 50px;
+    border-radius: 50px;
+}
+nav ul li a:hover:not(.ativado){
+    border: 5px solid red;
+    background-color: blue;
+}
+
+nav ul li a:active{
+    border: 5px solid rgb(0, 229, 255);
+    background-color: rgb(255, 0, 0);
+}
