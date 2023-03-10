@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Carrinhos de Compras</title>
+</head>
+<body>
+
+    <div id="container">
+
+        <h1>Carrinho de Compras</h1>
+
+        <form>
+            <p>
+                <label for="">Produto: </label>
+                <input type="text" id="produto">
+            </p>
+            <p>
+                <label for="">Valor: </label>
+                <input type="text" id="valor">
+            </p>
+
+            <p>
+                <label for="">Quantidade: </label>
+                <input type="text" id="quantidade">
+            </p>
+        </form>
+
+        <button onclick="adicionar()">Adicionar</button>
+
+        <table border="1px">
+            <thead>
+                <th>Item</th>
+                <th width="100px">Produto</th>
+                <th>Valor</th>
+                <th width="100px">Quantidade</th>
+                <th>Total</th>
+            </thead>
+            <tbody id="produtos">
+            </tbody>
+            <tfoot>
+                <td colspan="4">Total</td>
+                <td id="valorTotal">0</td>
+            </tfoot>
+        </table>
+
+        <p>
+            <form>
+                <input type="radio" name="pagamento" onclick="dinheiro()" checked>
+                <label>Dinheiro</label>
+                <input type="radio" name="pagamento" onclick="cartao()">
+                <label>Cartão de Crétido</label>
+            </form>
+        </p>
+
+        <p>
+            <img src="img/dinheiro.png" id="imagem">
+        </p>
+
+        <button onclick="colorirLinhas()">Colorir Linhas</button>
+        <button onclick="finalizar()">Finalizar Compra</button>
+    </div>
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
