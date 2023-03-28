@@ -1,10 +1,10 @@
 <?php ?>
-
-<div class="card fixed-bottom">
-  <h5 class="card-header">Featured</h5>
+</br>
+<div class="card sticky-bottom">
+  <h5 class="card-header">Rodapé</h5>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">Este é apenas um site voltado para o aprendizado em PHP</h5>
+    <p class="card-text">Site feito como exercicio na matéria de programação web 2 IFG campus Formosa 2023/1.</p>
+    <a href="https://www.ifg.edu.br/" class="btn btn-primary">IFG</a>
   </div>
 </div>
