@@ -1,7 +1,7 @@
 # TADS
 > Repositório de todas as atividades feitas durante o curso.
 
-![](logo-ifg-formosa.png)
+<img src="logo-ifg-formosa.png" width="500px"></img>
 
 ## Pra que serve?
 
