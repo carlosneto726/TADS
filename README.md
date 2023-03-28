@@ -3,6 +3,6 @@
 
 ![](logo-ifg-formosa.png)
 
-## Pra que serve
+## Pra que serve?
 
 Esse repositório tem apenas o intuito de guardar os códigos feitos durante o curso, qualquer um pode clonar o mesmo e usar para estudo.
