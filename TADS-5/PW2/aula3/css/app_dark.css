@@ -1,20 +1,20 @@
 body{
-    background-color: #F7F2E3;
-    color: #282A3A;
+    background-color: #282A3A;
+    color: #EAF2D4;
 }
 
 .navbar{
-    background-color: #D5D0BC;
-    color: #282A3A;
+    background-color: #161821;
+    color: #EAF2D4;
 }
 
 li a.nav-link, a.navbar-brand{
-    color: #282A3A;
+    color: #EAF2D4;
 }
 
 .card{
-    color: #5c5c5c;
-    background-color: #E5DFCD;
+    background-color: #1E1F2B;
+    color: #EAF2D4;
 }
 
 .card-homepage{
@@ -27,9 +27,7 @@ li a.nav-link, a.navbar-brand{
 .carousel .carousel-inner .carousel-caption{
     color: #000000;
 }
-.carousel .carousel-control-prev .carousel-control-prev-icon, .carousel .carousel-control-next .carousel-control-next-icon{
-    filter: invert(100%);
-}
+
 
 .titulo-pagina{
     display: grid;
@@ -45,4 +43,6 @@ li a.nav-link, a.navbar-brand{
     justify-content: center;
     align-items: center;
     gap: 50px;
+    font-family: 'Montserrat', sans-serif;
+    color: #47ADEA;
 }

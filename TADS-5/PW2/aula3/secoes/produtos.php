@@ -15,7 +15,7 @@
             <div class='card-body'>
                 <h5 class='card-title'>$produtos[$i]</h5>
                 <p class='card-text'>Descrição do produto.</p>
-                <a href='#' class='btn btn-primary'>Mais Detalhes</a>
+                <a href='#' class='btn btn-primary' onclick='provisory_btn()'>Mais Detalhes</a>
             </div>
         </div>";
     }

@@ -1,20 +1,67 @@
 <?php
 ?>
 <div>
-    <h1>Bem vindo ao MarketPlace!</h1>
-    <h2>Você está no maior, melhor, mais bonito, cheiroso, bacaninha e-comerce do universo quantico do silicio ao quadrado divido por tres!!!</h1>
-    <h5>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget metus mi. Proin molestie pulvinar ex, non feugiat enim varius id. Aenean tincidunt ac diam vitae volutpat. Sed non lorem scelerisque, maximus urna egestas, bibendum urna. Integer ut ultrices purus. Sed ac magna at ex congue faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam erat volutpat. Phasellus sagittis metus eu quam aliquet hendrerit. Proin finibus dolor eget ex elementum, consectetur dictum dui posuere. Vivamus dui mi, pretium commodo lectus ut, condimentum congue diam. Aenean ligula sem, semper vel molestie ac, vestibulum ac elit.
-            Sed dolor erat, interdum non nisi nec, fringilla venenatis orci. Maecenas sed molestie neque. Nam sed blandit nisi. Etiam facilisis scelerisque ornare. Donec commodo, ex vel aliquam sagittis, risus dui venenatis dui, in rhoncus tortor justo eget enim. Fusce semper viverra viverra. Integer lacus velit, dignissim eu luctus id, efficitur vel mi. Vivamus vitae sollicitudin turpis, et euismod tellus. Quisque ac efficitur leo. Vestibulum aliquet erat sit amet nisl porttitor, id iaculis mauris vehicula. Ut congue interdum tortor, non facilisis dui luctus et. Morbi accumsan hendrerit nulla, vitae gravida lectus faucibus at. Cras at sollicitudin tortor.
-            Curabitur ut posuere sem, sagittis sodales sem. Integer cursus nulla ut neque laoreet, in viverra arcu venenatis. Pellentesque rutrum tortor in iaculis dignissim. Aenean diam lorem, ullamcorper porta orci ut, congue bibendum enim. Donec ut pellentesque enim, sed malesuada ligula. Praesent luctus sagittis vehicula. Mauris sit amet tellus in mi tincidunt dictum vitae nec lacus. Integer eros tortor, lobortis et dui a, semper malesuada nunc. Sed ultrices nibh vitae ipsum commodo volutpat.
-            Phasellus non elit aliquam, semper risus vitae, fermentum ante. Ut tristique posuere ipsum. In egestas felis at metus dignissim ullamcorper. Integer elit nisl, commodo nec velit vitae, ultrices ullamcorper felis. Vestibulum tincidunt dui a turpis sollicitudin, ultricies efficitur massa vehicula. Curabitur elementum purus a dapibus tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla enim mauris, dapibus et ex non, ultricies volutpat lectus. Praesent libero erat, vulputate at quam in, feugiat semper nisi. Suspendisse lacus metus, rutrum eu consectetur vel, cursus vel lorem. Integer dignissim posuere odio nec volutpat. Vivamus pretium erat eu tellus consectetur gravida. Vestibulum dapibus tempor nisi ornare consectetur. Phasellus tristique libero ac iaculis molestie.
-            Mauris vitae arcu dui. Donec lacus ipsum, blandit in venenatis nec, dictum id mauris. Vestibulum facilisis at diam et tincidunt. Curabitur at suscipit arcu. Etiam dignissim gravida aliquet. Duis in pulvinar metus, nec laoreet massa. Curabitur ut viverra quam. In imperdiet, ex nec sagittis molestie, elit libero ullamcorper libero, a tincidunt erat nisl eu leo.
-            Sed dolor erat, interdum non nisi nec, fringilla venenatis orci. Maecenas sed molestie neque. Nam sed blandit nisi. Etiam facilisis scelerisque ornare. Donec commodo, ex vel aliquam sagittis, risus dui venenatis dui, in rhoncus tortor justo eget enim. Fusce semper viverra viverra. Integer lacus velit, dignissim eu luctus id, efficitur vel mi. Vivamus vitae sollicitudin turpis, et euismod tellus. Quisque ac efficitur leo. Vestibulum aliquet erat sit amet nisl porttitor, id iaculis mauris vehicula. Ut congue interdum tortor, non facilisis dui luctus et. Morbi accumsan hendrerit nulla, vitae gravida lectus faucibus at. Cras at sollicitudin tortor.
-            Curabitur ut posuere sem, sagittis sodales sem. Integer cursus nulla ut neque laoreet, in viverra arcu venenatis. Pellentesque rutrum tortor in iaculis dignissim. Aenean diam lorem, ullamcorper porta orci ut, congue bibendum enim. Donec ut pellentesque enim, sed malesuada ligula. Praesent luctus sagittis vehicula. Mauris sit amet tellus in mi tincidunt dictum vitae nec lacus. Integer eros tortor, lobortis et dui a, semper malesuada nunc. Sed ultrices nibh vitae ipsum commodo volutpat.
-            Phasellus non elit aliquam, semper risus vitae, fermentum ante. Ut tristique posuere ipsum. In egestas felis at metus dignissim ullamcorper. Integer elit nisl, commodo nec velit vitae, ultrices ullamcorper felis. Vestibulum tincidunt dui a turpis sollicitudin, ultricies efficitur massa vehicula. Curabitur elementum purus a dapibus tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla enim mauris, dapibus et ex non, ultricies volutpat lectus. Praesent libero erat, vulputate at quam in, feugiat semper nisi. Suspendisse lacus metus, rutrum eu consectetur vel, cursus vel lorem. Integer dignissim posuere odio nec volutpat. Vivamus pretium erat eu tellus consectetur gravida. Vestibulum dapibus tempor nisi ornare consectetur. Phasellus tristique libero ac iaculis molestie.
-            Mauris vitae arcu dui. Donec lacus ipsum, blandit in venenatis nec, dictum id mauris. Vestibulum facilisis at diam et tincidunt. Curabitur at suscipit arcu. Etiam dignissim gravida aliquet. Duis in pulvinar metus, nec laoreet massa. Curabitur ut viverra quam. In imperdiet, ex nec sagittis molestie, elit libero ullamcorper libero, a tincidunt erat nisl eu leo.
-        </p>
-    </h5>
+    <div class="titulo-pagina">
+        <center><p><h1>Bem vindo(a) ao MarketPlace!!!</h1></p></center>
+        <center><p><h4>Você está na pagina incial da loja mais bonita, do universo quântico silício ao quadrado dividido por três.</h4></p></center>
+    </div>
 
+
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <center><img src="img/img_placeholder.svg" class="d-block w-35 border rounded"></center>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <center><img src="img/img_placeholder.svg" class="d-block w-35 border rounded"></center>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <center><img src="img/img_placeholder.svg" class="d-block w-35 border rounded"></center>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>'
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+<div class="card-homepage card mb-3">
+    <div class="card-header"><h4>Sobre nós</h4></div>
+        <div class="card-body">
+            <p class="card-text text-break">
+                <h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lectus est, dignissim quis hendrerit id, porttitor in justo. Nam fringilla ipsum a posuere mattis. Sed convallis posuere lectus, varius egestas ex scelerisque sed. Cras consectetur eget dui quis iaculis. In hac habitasse platea dictumst. Donec ultrices tempor lacus non iaculis. Maecenas sed lacinia felis. Aliquam iaculis mi quis mollis varius. Integer semper efficitur mauris, a auctor dolor tempus ut. Sed fermentum, nibh ac vulputate fermentum, quam nulla sollicitudin mauris, a malesuada sem ligula a lorem.</p>
+                    <p>Donec sed sem quam. Nulla eleifend lacus eget consequat commodo. Donec ipsum elit, dapibus vel quam a, scelerisque vehicula lectus. Donec vel sodales turpis, ac volutpat ex. Suspendisse at tempus urna. Pellentesque sed posuere quam. Curabitur at tincidunt ligula, ac bibendum neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis finibus velit ut faucibus feugiat. Proin fermentum facilisis bibendum. Cras aliquet erat sapien, laoreet feugiat est luctus ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras elementum tellus in turpis molestie, sed placerat lacus volutpat.</p>
+                    <p>Ut ac commodo tortor, eu vulputate augue. Donec eget arcu non ipsum ultrices commodo. Aliquam tempor velit sit amet laoreet hendrerit. Aliquam nunc elit, consectetur nec hendrerit eu, eleifend at arcu. Vivamus convallis nibh eget luctus cursus. Nam pharetra mattis justo, non vestibulum ex. Fusce pulvinar rutrum lorem vitae vestibulum. Aenean ac sem at purus eleifend convallis vel ac mi. Nam tristique dui risus. Donec tellus justo, pharetra sit amet ultrices sed, consequat ut orci. Mauris nibh mauris, venenatis eu nunc et, iaculis maximus lacus. Aliquam justo neque, cursus et egestas ac, vulputate sit amet metus.</p>
+                    <p>Etiam consectetur ultricies nibh vel eleifend. Vestibulum non arcu quam. Pellentesque in tincidunt quam, et mollis odio. Praesent porttitor pulvinar facilisis. Maecenas condimentum vestibulum massa, nec finibus odio volutpat id. Cras sit amet tincidunt tellus, sit amet commodo massa. Quisque eu nisi finibus, ultrices eros nec, gravida risus. Suspendisse metus dui, tempus sollicitudin nulla a, imperdiet sodales ante. Duis ac porttitor libero, id suscipit urna. Integer faucibus rutrum est sed auctor. In orci urna, bibendum id ante at, predo eres un viadón. Integer efficitur nisi elit, a aliquam sapien maximus sed. Ut placerat sapien non risus pellentesque sagittis pellentesque ac lacus. Maecenas nec urna lorem. Quisque vitae sollicitudin arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                    <p>Integer venenatis, massa in cursus ornare, magna nibh tempor mi, semper aliquet justo nunc ac felis. Suspendisse aliquet erat sollicitudin dolor elementum interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer suscipit ipsum nec urna facilisis porta. Nunc sodales purus ex, et auctor nisi blandit in. Cras quis vehicula nibh, porta ultricies nisi. Nulla facilisis ipsum quis est aliquam, eu volutpat diam consequat.</p>
+                </h5>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+    
 </div>

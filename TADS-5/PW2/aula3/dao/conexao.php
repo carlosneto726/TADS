@@ -9,7 +9,7 @@ class conexao{
 
         self::connect();
 
-        echo "<h2>conectado com sucesso!!!</h2>";
+        echo "<h2>Conectado com o banco de dados com sucesso!!!</h2>";
     }
     public function connect(){
         $this->conn = @mysqli_connect($this->host, $this->user, $this->pass) or die("<ins><center>Erro ao conectar ao banco de dados.</ins></center>".mysqli_error());
