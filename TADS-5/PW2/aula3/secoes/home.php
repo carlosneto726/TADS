@@ -46,7 +46,7 @@
         </button>
     </div>
 
-<div class="card-homepage card mb-3">
+<div class="card-homepage container card mb-3 my-5">
     <div class="card-header"><h4>Sobre nós</h4></div>
         <div class="card-body">
             <p class="card-text text-break">

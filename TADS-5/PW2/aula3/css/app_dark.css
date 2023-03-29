@@ -17,13 +17,6 @@ li a.nav-link, a.navbar-brand{
     color: #EAF2D4;
 }
 
-.card-homepage{
-    margin: 50px 100px 100px 100px;
-}
-.card-login{
-    margin: 50px 500px 50px 500px;
-}
-
 .carousel .carousel-inner .carousel-caption{
     color: #000000;
 }
