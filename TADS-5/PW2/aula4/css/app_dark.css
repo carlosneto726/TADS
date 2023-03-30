@@ -1,0 +1,41 @@
+body{
+    background-color: #282A3A;
+    color: #EAF2D4;
+}
+
+.navbar{
+    background-color: #161821;
+    color: #EAF2D4;
+}
+
+li a.nav-link, a.navbar-brand{
+    color: #EAF2D4;
+}
+
+.card{
+    background-color: #1E1F2B;
+    color: #EAF2D4;
+}
+
+.carousel .carousel-inner .carousel-caption{
+    color: #000000;
+}
+
+
+.titulo-pagina{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    font-family: 'Montserrat', sans-serif;
+    color: #47ADEA;
+}

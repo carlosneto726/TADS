@@ -1,0 +1,41 @@
+body{
+    background-color: #F7F2E3;
+    color: #282A3A;
+}
+
+.navbar{
+    background-color: #D5D0BC;
+    color: #282A3A;
+}
+
+li a.nav-link, a.navbar-brand{
+    color: #282A3A;
+}
+
+.card{
+    color: #5c5c5c;
+    background-color: #E5DFCD;
+}
+
+.carousel .carousel-inner .carousel-caption{
+    color: #000000;
+}
+.carousel .carousel-control-prev .carousel-control-prev-icon, .carousel .carousel-control-next .carousel-control-next-icon{
+    filter: invert(100%);
+}
+
+.titulo-pagina{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
