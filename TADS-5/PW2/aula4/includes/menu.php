@@ -21,6 +21,4 @@
         <input class="form-check-input" type="checkbox" id="checkbox_theme" onclick="change_theme()" checked>
         <label class="form-check-label" id="theme_label">Dark Mode</label>
     </div>
-        
-
 </div>

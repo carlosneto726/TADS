@@ -35,15 +35,13 @@ class manipular_dados extends conexao{
         if(self::exeSQL($this->sql)){
             $this->status = "Cadastro com sucesso";
         }else{
-            $this->status = "Erro ao cadastrar".mysqli_error();
+            $this->status = "Erro ao cadastrar".mysqli_error(self::connect());
         }
     }
-
 
     public function getAllDataTable(){
         $this->sql = "SELECT * FROM $this->table;";
         $this->qr = self::exeSQL($this->sql);
-        
 
         $listaresp = array();
 
@@ -52,6 +50,49 @@ class manipular_dados extends conexao{
         }
 
         return $listaresp;
+
+    }
+
+    public function getLojaPorNome($nome){
+        $this->sql = "SELECT tb_lojas.nome from tb_lojas INNER JOIN tb_produtos ON tb_lojas.id = tb_produtos.id_loja AND tb_produtos.nome = '".$nome."'";
+
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+        return $listaresp;
+
+    }
+
+
+    public function getProdutosPorLoja($loja_id){
+        $this->sql = "SELECT tb_produtos.nome, tb_produtos.descricao, tb_produtos.preco FROM tb_produtos
+        INNER JOIN tb_lojas ON tb_produtos.id_loja = tb_lojas.id AND tb_lojas.id = $loja_id;";
+
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+        return $listaresp;
+    }
+
+
+    public function getProdutoById($id){
+        $this->sql = "SELECT * FROM $this->table WHERE $id = tb_produtos.id;";
+    $this->qr = self::exeSQL($this->sql);
+
+    $listaresp = array();
+
+    while($row = @mysqli_fetch_assoc($this->qr)){
+        array_push($listaresp, $row);
+    }
+    return $listaresp;
 
     }
 }

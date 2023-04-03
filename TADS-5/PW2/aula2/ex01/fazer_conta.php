@@ -16,11 +16,15 @@
     echo "<center> Preço: $preco_fmt <br> Subtotal: $sub_total_fmt <br> Impostos e Taxas: $impostos_e_taxas_fmt <br> Total: $total_fmt </center>";
 
 
+
+
+
+
     $nome_arquivo = $_FILES['fileFoto']['name'];
 
     echo "Arquivo enviado com sucesso";
 
-    //move_uploaded_file($_FILES['arquivo']['pasta'], $nome_arquivo);
+    move_uploaded_file($_FILES['arquivo']['pasta'], $nome_arquivo);
 
 
 
