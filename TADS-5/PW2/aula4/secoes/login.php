@@ -29,14 +29,13 @@
     </div>
 </div>
 
-<center>
+<script>
+    var jsAlert = "<?php echo $_SESSION['jsAlert']; ?>";
+    if(jsAlert != "none"){
+        alert(jsAlert);
+    }
+</script>
 
-    <br>
-    <br>
-    <?php
-        include_once("dao/conexao.php");
-        $conexao_bd = new conexao();
-    ?>
-    <br>
-    <br>
-</center>
+<?php
+$_SESSION['jsAlert'] = "none";
+?>

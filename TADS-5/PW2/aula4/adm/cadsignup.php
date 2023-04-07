@@ -1,13 +1,21 @@
 <?php
+
+    session_start();
     include_once('../dao/manipular_dados.php');
 
-    $manipula = new manipular_dados();
+    $checkusers = new manipular_dados();
+    $checklojas = new manipular_dados();
 
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $nomeloja = $_POST['nomeloja'];
+    $descloja = $_POST['descloja'];
 
-    $manipula->setTable("tb_users");
-    $users = $manipula->getAllDataTable();
+    $checkusers->setTable("tb_users");
+    $checklojas->setTable("tb_lojas");
+    
+    $users = $checkusers->getAllDataTable();
+    $lojas = $checklojas->getAllDataTable();
 
     $cadastrado = 0;
 
@@ -18,15 +26,34 @@
         }
     }
 
+    foreach($lojas as $loja){
+        if($loja['nome'] == $nomeloja){
+            $cadastrado = 1;
+            break;
+        }
+    }
+
+
+
+
     if($cadastrado){
-        echo "<h1><center>E-mail já cadastrado.<br/><a href='http://localhost/aula4/?secao=signup'>Clique aqui para voltar</a></center></h1>";
-        die();
+        $_SESSION['jsAlert'] = "Erro ao cadastrar usuário, e-mail já registrado.";
+        header("Location: http://localhost/aula4/?secao=login");
+        exit();
     }else{
-        $manipula->setFields("email,passw");
-        $manipula->setDados("'$email','$password'");
-        $manipula->insert();
-        
-        echo "<h1><center>Usuário registrado com sucesso!<br/><a href='http://localhost/aula4/?secao=login'>Clique aqui para fazer o login</a></center></h1>";
+        $checkusers->setFields("email,passw");
+        $checkusers->setDados("'$email','$password'");
+        $checkusers->insert();
+
+        $id_user = $checkusers->getUserIdByEmail($email)[0]['id'];
+
+        $checklojas->setFields("nome,descricao,id_user");
+        $checklojas->setDados("'$nomeloja', '$descloja', '$id_user'");
+        $checklojas->insert();
+
+        $_SESSION['jsAlert'] = "Usuário cadastrado com sucesso!";
+        header("Location: http://localhost/aula4/?secao=login");
+        exit();
     }
     
 ?>

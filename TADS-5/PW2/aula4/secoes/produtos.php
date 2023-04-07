@@ -14,7 +14,7 @@
     foreach($produtos_table as $produto){ ?>
     
         <div class='card' style='width: 18rem;''>
-        <img src='img/default_template.png' class='card-img-top' alt='card-img'>
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($produto['img']); ?>" class='card-img-top img-fluid' alt='card-img'>
             <div class='card-body'>
                 <h5 class='card-title'><?=$produto['nome']?></h5>
                 <p class='card-text'><?=$produto['descricao']?></p>

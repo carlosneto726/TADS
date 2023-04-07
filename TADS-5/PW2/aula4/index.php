@@ -1,7 +1,6 @@
 <?php
     include_once("controller/ver_url.php");
     include_once("dao/manipular_dados.php");
-    $menu = "menu.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,18 +19,7 @@
     </header>
 
     <nav class="navbar navbar-expand-lg sticky-top">
-        <script>
-            var userToken = window.localStorage.getItem("userToken");
-            alert(userToken);
-            if(isNaN(userToken)){
-                '<?php $menu = 'menu.php' ?>'
-            }else{
-                '<?php $menu = 'loggedmenu.php' ?>'
-            }
-        </script>
-
-
-        <?php include("includes/$menu"); ?>
+        <?php include("includes/menu.php"); ?>
     </nav>
 
     <section>
@@ -44,7 +32,6 @@
     <footer>
         <?php include("includes/rodape.php");?>
     </footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
