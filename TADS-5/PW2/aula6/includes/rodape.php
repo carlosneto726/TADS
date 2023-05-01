@@ -1,6 +1,9 @@
 <?php ?>
-</br>
-<div class="card sticky-bottom position-static">
+<br/>
+<br/>
+<br/>
+
+<div class="card sticky-bottom z-2 position-sticky">
   <h5 class="card-header">Rodapé</h5>
   <div class="card-body">
     <h5 class="card-title">Este é apenas um site voltado para o aprendizado em PHP</h5>

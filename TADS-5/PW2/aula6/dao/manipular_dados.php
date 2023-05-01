@@ -53,7 +53,7 @@ class manipular_dados extends conexao{
 
     }
 
-    public function getLojaPorNome($nome){
+    public function getFabricantePorNome($nome){
         $this->sql = "SELECT tb_lojas.nome from tb_lojas INNER JOIN tb_produtos ON tb_lojas.id = tb_produtos.id_loja AND tb_produtos.nome = '".$nome."'";
 
         $this->qr = self::exeSQL($this->sql);
@@ -69,7 +69,7 @@ class manipular_dados extends conexao{
 
 
     public function getProdutosPorLoja($loja_id){
-        $this->sql = "SELECT tb_produtos.nome, tb_produtos.descricao, tb_produtos.preco FROM tb_produtos
+        $this->sql = "SELECT tb_produtos.nome, tb_produtos.preco, tb_produtos.id, tb_produtos.img_path, tb_produtos.cavalos, tb_produtos.zeroacem, tb_produtos.velocidade, tb_produtos.quantidade FROM tb_produtos
         INNER JOIN tb_lojas ON tb_produtos.id_loja = tb_lojas.id AND tb_lojas.id = $loja_id;";
 
         $this->qr = self::exeSQL($this->sql);
@@ -96,7 +96,7 @@ class manipular_dados extends conexao{
 
     }
     public function getProdutoByEmail($email){
-        $this->sql = "SELECT tb_produtos.nome, tb_produtos.descricao, tb_produtos.preco, tb_produtos.id, tb_produtos.img_path FROM tb_produtos INNER JOIN tb_lojas INNER JOIN tb_users ON tb_produtos.id_loja = tb_lojas.id AND tb_lojas.id_user = tb_users.id AND tb_users.email =  '".$email."';";
+        $this->sql = "SELECT tb_produtos.nome, tb_produtos.preco, tb_produtos.id, tb_produtos.img_path, tb_produtos.cavalos, tb_produtos.zeroacem, tb_produtos.velocidade, tb_produtos.quantidade FROM tb_produtos INNER JOIN tb_lojas INNER JOIN tb_users ON tb_produtos.id_loja = tb_lojas.id AND tb_lojas.id_user = tb_users.id AND tb_users.email =  '".$email."';";
         $this->qr = self::exeSQL($this->sql);
 
         $listaresp = array();
@@ -108,9 +108,8 @@ class manipular_dados extends conexao{
 
     }
 
-
     public function getLojaIdByEmail($email){
-        $this->sql = "SELECT tb_lojas.id, tb_lojas.nome, tb_lojas.descricao FROM tb_lojas INNER JOIN tb_users ON tb_users.id = tb_lojas.id_user AND tb_users.email = '".$email."';";
+        $this->sql = "SELECT tb_lojas.id, tb_lojas.nome, tb_lojas.descricao, tb_lojas.img_path FROM tb_lojas INNER JOIN tb_users ON tb_users.id = tb_lojas.id_user AND tb_users.email = '".$email."';";
         $this->qr = self::exeSQL($this->sql);
 
         $listaresp = array();
@@ -126,17 +125,27 @@ class manipular_dados extends conexao{
         $this->qr = self::exeSQL($this->sql);
     }
 
-    public function updateProduto($nome, $descricao, $preco, $id){
-        $this->sql = "UPDATE tb_produtos SET nome = '".$nome."', descricao = '".$descricao."', preco = '".$preco."' WHERE id = $id;";
+    public function delUserById($id){
+        $this->sql = "DELETE FROM tb_users WHERE tb_users.id = $id";
         $this->qr = self::exeSQL($this->sql);
     }
 
-    public function updatetImg($imgContent, $id){
-        $this->sql = "UPDATE tb_produtos SET img_path = '".$imgContent."' WHERE tb_produtos.id = $id;";
+    public function updateProduto($nome, $preco, $id, $velocidade, $cavalos, $zeroacem, $quantidade){
+        $this->sql = "UPDATE tb_produtos SET nome = '".$nome."', preco = '".$preco."', velocidade = '".$velocidade."', cavalos = '".$cavalos."', zeroacem = '".$zeroacem."', quantidade = '".$quantidade."' WHERE id = $id;";
         $this->qr = self::exeSQL($this->sql);
     }
 
-    public function updateLojaNomeDesc($nome, $descricao, $id){
+    public function updatetImg($img_path, $id){
+        $this->sql = "UPDATE tb_produtos SET img_path = '".$img_path."' WHERE tb_produtos.id = $id;";
+        $this->qr = self::exeSQL($this->sql);
+    }
+
+    public function updatetImgPerfil($img_path, $id){
+        $this->sql = "UPDATE tb_lojas SET img_path = '".$img_path."' WHERE tb_lojas.id = $id;";
+        $this->qr = self::exeSQL($this->sql);
+    }
+
+    public function updateLoja($nome, $descricao, $id){
         $this->sql = "UPDATE tb_lojas SET nome = '".$nome."', descricao = '".$descricao."' WHERE tb_lojas.id = $id ;";
         $this->qr = self::exeSQL($this->sql);
     }
@@ -175,6 +184,119 @@ class manipular_dados extends conexao{
         $this->qr = self::exeSQL($this->sql);
         $linhas = @mysqli_num_rows($this->qr);
         return $linhas;
+    }
+
+    public function getProdutoOrderByPreco(){
+        $this->sql = "SELECT * FROM tb_produtos ORDER BY tb_produtos.preco DESC;";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
+    }
+    public function getProdutoOrderByLoja(){
+        $this->sql = "SELECT * FROM tb_produtos ORDER BY tb_produtos.id_loja;";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
+    }
+
+    public function getProdutoOrderByVelocidade(){
+        $this->sql = "SELECT * FROM tb_produtos ORDER BY tb_produtos.velocidade DESC;";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
+    }
+
+    public function getProdutoOrderByAlfabeto(){
+        $this->sql = "SELECT * FROM tb_produtos ORDER BY tb_produtos.nome;";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
+    }
+
+
+    public function getProdutoOrderByCavalos(){
+        $this->sql = "SELECT * FROM tb_produtos ORDER BY tb_produtos.cavalos DESC;";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
+    }
+
+
+    public function getProdutoOrderByZeroACem(){
+        $this->sql = "SELECT * FROM tb_produtos ORDER BY tb_produtos.zeroacem;";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
+    }
+    public function getProdutoOrderByQuantidade(){
+        $this->sql = "SELECT * FROM tb_produtos ORDER BY tb_produtos.quantidade DESC;";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
+    }
+
+
+    public function procura($nome){
+        $this->sql = "SELECT tb_produtos.id FROM tb_produtos WHERE nome LIKE '%".$nome."%';";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+
+        return $listaresp;
+
     }
 
 }

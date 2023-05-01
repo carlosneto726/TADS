@@ -1,225 +1,134 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 28-Abr-2023 às 02:45
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+CREATE TABLE tb_users (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  email varchar(255) NOT NULL,
+  passw varchar(255) DEFAULT NULL,
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE tb_lojas (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  nome varchar(255) NOT NULL,
+  descricao varchar(255) DEFAULT NULL,
+  img varchar(255) NULL,
+  id_user int(11) DEFAULT NULL,
+  img_path varchar(255) DEFAULT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY(id_user) REFERENCES tb_users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE tb_produtos (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  nome varchar(255) NOT NULL,
+  descricao varchar(255) DEFAULT NULL,
+  preco float NOT NULL,
+  id_loja int(11) NOT NULL,
+  img_path varchar(255) DEFAULT NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY(id_loja) REFERENCES tb_lojas(id) ON DELETE CASCADE
+);
+
+INSERT INTO tb_users (email, passw) VALUES
+("bugatti@123", "123"),
+("ferrari@123", "123"),
+("honda@123", "123"),
+("koenigsegg@123", "123"),
+("lamborghini@123", "123"),
+("mazda@123", "123"),
+("mclaren@123", "123"),
+("mercedes@123", "123"),
+("mitsubishi@123", "123"),
+("nissan@123", "123"),
+("porsche@123", "123"),
+("subaru@123", "123"),
+("toyota@123", "123"),
+("bmw@123", "123"),
+("pagani@123", "123");
+
+INSERT INTO tb_lojas (nome, descricao, id_user, img_path) VALUES
+("Bugatti", "Fabricante de carros", 1, "img/lojas/bugatti.png"),
+("Ferrari", "Fabricante de carros", 2, "img/lojas/ferrari.png"),
+("Honda", "Fabricante de carros", 3, "img/lojas/honda.png"),
+("Koenigsegg", "Fabricante de carros", 4, "img/lojas/koenigsegg.png"),
+("Lamborghini", "Fabricante de carros", 5, "img/lojas/lamborghini.png"),
+("Mazda", "Fabricante de carros", 6, "img/lojas/mazda.png"),
+("Mclaren", "Fabricante de carros", 7, "img/lojas/mclaren.png"),
+("Mercedes", "Fabricante de carros", 8, "img/lojas/mercedesbenz.png"),
+("Mitsubishi", "Fabricante de carros", 9, "img/lojas/mitsubishi.png"),
+("Nissan", "Fabricante de carros", 10, "img/lojas/nissan.png"),
+("Porsche", "Fabricante de carros", 11, "img/lojas/porsche.png"),
+("Subaru", "Fabricante de carros", 12, "img/lojas/subaru.png"),
+("Toyota", "Fabricante de carros", 13, "img/lojas/toyota.png"),
+
+("BMW", "Fabricante de carros", 14, "img/lojas/bmw.png"),
+("Pagani", "Fabricante de carros", 15, "img/lojas/pagani.png");
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Banco de dados: `db_mymarketplace`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tb_lojas`
---
-
-CREATE TABLE `tb_lojas` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `descricao` varchar(255) DEFAULT NULL,
-  `id_user` int(11) DEFAULT NULL,
-  `img_path` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `tb_lojas`
---
-
-INSERT INTO `tb_lojas` (`id`, `nome`, `descricao`, `id_user`, `img_path`) VALUES
-(1, 'Bugatti', 'Fabricante de carros', 1, NULL),
-(2, 'Ferrari', 'Fabricante de carros', 2, NULL),
-(3, 'Honda', 'Fabricante de carros', 3, NULL),
-(4, 'Koenigsegg', 'Fabricante de carros', 4, NULL),
-(5, 'Lamborghini', 'Fabricante de carros', 5, NULL),
-(6, 'Mazda', 'Fabricante de carros', 6, NULL),
-(7, 'Mclaren', 'Fabricante de carros', 7, NULL),
-(8, 'Mercedes-Benz', 'Fabricante de carros', 8, NULL),
-(9, 'Mitsubishi', 'Fabricante de carros', 9, NULL),
-(10, 'Nissan', 'Fabricante de carros', 10, NULL),
-(11, 'Porsche', 'Fabricante de carros', 11, NULL),
-(12, 'Subaru', 'Fabricante de carros', 12, NULL),
-(13, 'Toyota', 'Fabricante de carros', 13, NULL);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tb_produtos`
---
-
-CREATE TABLE `tb_produtos` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `descricao` varchar(255) DEFAULT NULL,
-  `preco` float NOT NULL,
-  `id_loja` int(11) NOT NULL,
-  `img_path` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `tb_produtos`
---
-
-INSERT INTO `tb_produtos` (`id`, `nome`, `descricao`, `preco`, `id_loja`, `img_path`) VALUES
-(1, 'Bugatti Centodie', 'This is a car.', 1, 1, 'img/produtos/bugatti-centodieci.png'),
-(2, 'Bugatti Chiron', 'This is a car.', 1, 1, 'img/produtos/bugatti-chiron.png'),
-(3, 'Bugatti Divo', 'This is a car.', 1, 1, 'img/produtos/bugatti-divo.png'),
-(4, 'Bugatti La Voiture Noire', 'This is a car.', 1, 1, 'img/produtos/bugatti-lavoiturenoire.png'),
-(5, 'Bugatti Mistral', 'This is a car.', 1, 1, 'img/produtos/bugatti-mistral.png'),
-(6, 'Bugatti Veyron', 'This is a car.', 1, 1, 'img/produtos/bugatti-veyron.png'),
-(7, 'Ferrari Enzo', 'This is a car.', 1, 2, 'img/produtos/ferrari-enzo.png'),
-(8, 'Ferrari F40', 'This is a car.', 1, 2, 'img/produtos/ferrari-f40.png'),
-(9, 'Ferrari Porto Fino', 'This is a car.', 1, 2, 'img/produtos/ferrari-portofino.png'),
-(10, 'Ferrari Testarossa', 'This is a car.', 1, 2, 'img/produtos/ferrari-testarossa.png'),
-(11, 'Honda S2000', 'This is a car.', 1, 3, 'img/produtos/honda-s2000.png'),
-(12, 'Honda Civic Type R', 'This is a car.', 1, 3, 'img/produtos/honda-civictyper.png'),
-(13, 'Honda NSX-R', 'This is a car.', 1, 3, 'img/produtos/honda-nsx-r.png'),
-(14, 'Koenigsegg One 1', 'This is a car.', 1, 4, 'img/produtos/koenigsegg-one1.png'),
-(15, 'Koenigsegg Jesko', 'This is a car.', 1, 4, 'img/produtos/koenigsegg-jesko.png'),
-(16, 'Lamborghini Aventador', 'This is a car.', 1, 5, 'img/produtos/lamborghini-aventador.png'),
-(17, 'Lamborghini Diablo', 'This is a car.', 1, 5, 'img/produtos/lamborghini-diablo.png'),
-(18, 'Lamborghini Huracan', 'This is a car.', 1, 5, 'img/produtos/lamborghini-huracan.png'),
-(19, 'Lamborghini Murcielago', 'This is a car.', 1, 5, 'img/produtos/lamborghini-murcielago.png'),
-(20, 'Mazda Rx-7', 'This is a car.', 1, 6, 'img/produtos/mazda-rx7.png'),
-(21, 'Mazda Rx-5 Miata', 'This is a car.', 1, 6, 'img/produtos/mazda-rx5miata.png'),
-(22, 'McLaren F1', 'This is a car.', 1, 7, 'img/produtos/mclaren-f1.png'),
-(23, 'McLaren Senna', 'This is a car.', 1, 7, 'img/produtos/mclaren-senna.png'),
-(24, 'McLaren SLR', 'This is a car.', 1, 7, 'img/produtos/mclaren-visionslrconcept.png'),
-(25, 'Mercedes-Benz C112', 'This is a car.', 1, 8, 'img/produtos/mercedes-c112.png'),
-(26, 'Mercedes-Benz CLKMS Tarben', 'This is a car.', 1, 8, 'img/produtos/mercedes-clklmstarben.png'),
-(27, 'Mercedes-Benz S Class Coupe', 'This is a car.', 1, 8, 'img/produtos/mercedes-sclasscoupeconcepta.png'),
-(28, 'Mercedes-Benz SLR Mansonry', 'This is a car.', 1, 8, 'img/produtos/mercedes-slrmclarenmansoryrenovatio.png'),
-(29, 'Mitsubishi Eclipse 98', 'This is a car.', 1, 9, 'img/produtos/mitsubishi-eclipse98.png'),
-(30, 'Mitsubishi Eclipse Spider', 'This is a car.', 1, 9, 'img/produtos/mitsubishi-elipsespider.png'),
-(31, 'Mitsubishi Lancer Evo 8', 'This is a car.', 1, 9, 'img/produtos/mitsubishi-lancerevo8.png'),
-(32, 'Mitsubishi Lancer Evo X', 'This is a car.', 1, 9, 'img/produtos/mitsubishi-lancerevox.png'),
-(33, 'Nissan 180x', 'This is a car.', 1, 10, 'img/produtos/nissan-180x.png'),
-(34, 'Nissan 300zx', 'This is a car.', 1, 10, 'img/produtos/nissan-300zx.png'),
-(35, 'Nissan 350z', 'This is a car.', 1, 10, 'img/produtos/nissan-350z.png'),
-(36, 'Nissan GTR', 'This is a car.', 1, 10, 'img/produtos/nissan-gtr.png'),
-(37, 'Nissan Silvia', 'This is a car.', 1, 10, 'img/produtos/nissan-silvia.png'),
-(38, 'Nissan Skyline', 'This is a car.', 1, 10, 'img/produtos/nissan-skyline.png'),
-(39, 'Porsche 911', 'This is a car.', 1, 11, 'img/produtos/porsche-911.png'),
-(40, 'Porsche 917k', 'This is a car.', 1, 11, 'img/produtos/porsche-917k.png'),
-(41, 'Porsche 918', 'This is a car.', 1, 11, 'img/produtos/porsche-918.png'),
-(42, 'Porsche Carrera GT', 'This is a car.', 1, 11, 'img/produtos/porsche-carreragt.png'),
-(43, 'Porsche Cayman', 'This is a car.', 1, 11, 'img/produtos/porsche-cayman.png'),
-(44, 'Porsche Taycan', 'This is a car.', 1, 11, 'img/produtos/porsche-taycan.png'),
-(45, 'Subaru BRZ', 'This is a car.', 1, 12, 'img/produtos/subaru-brz.png'),
-(46, 'Subaru Impreza WRX STI 1', 'This is a car.', 1, 12, 'img/produtos/subaru-imprezawrxsti1.png'),
-(47, 'Subaru Impreza WRX STI 2', 'This is a car.', 1, 12, 'img/produtos/subaru-imprezawrxsti2.png'),
-(48, 'Subaru Impreza WRX STI 4', 'This is a car.', 1, 12, 'img/produtos/subaru-imprezawrxsti4.png'),
-(49, 'Toyota AE86', 'This is a car.', 1, 13, 'img/produtos/toyota-ae86truenocorolla.png'),
-(50, 'Toyota Celica', 'This is a car.', 1, 13, 'img/produtos/toyota-celica.jpg'),
-(51, 'Toyota Supra Mk4', 'This is a car.', 1, 13, 'img/produtos/toyota-supramk4.png');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tb_users`
---
-
-CREATE TABLE `tb_users` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `passw` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `tb_users`
---
-
-INSERT INTO `tb_users` (`id`, `email`, `passw`) VALUES
-(1, 'bugatti@123', '123'),
-(2, 'ferrari@123', '123'),
-(3, 'honda@123', '123'),
-(4, 'koenigsegg@123', '123'),
-(5, 'lamborghini@123', '123'),
-(6, 'mazda@123', '123'),
-(7, 'mclaren@123', '123'),
-(8, 'mercedes@123', '123'),
-(9, 'mitsubishi@123', '123'),
-(10, 'nissan@123', '123'),
-(11, 'porsche@123', '123'),
-(12, 'subaru@123', '123'),
-(13, 'toyota@123', '123');
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `tb_lojas`
---
-ALTER TABLE `tb_lojas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user` (`id_user`);
-
---
--- Índices para tabela `tb_produtos`
---
-ALTER TABLE `tb_produtos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_loja` (`id_loja`);
-
---
--- Índices para tabela `tb_users`
---
-ALTER TABLE `tb_users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `tb_lojas`
---
-ALTER TABLE `tb_lojas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT de tabela `tb_produtos`
---
-ALTER TABLE `tb_produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
-
---
--- AUTO_INCREMENT de tabela `tb_users`
---
-ALTER TABLE `tb_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `tb_lojas`
---
-ALTER TABLE `tb_lojas`
-  ADD CONSTRAINT `tb_lojas_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tb_users` (`id`);
-
---
--- Limitadores para a tabela `tb_produtos`
---
-ALTER TABLE `tb_produtos`
-  ADD CONSTRAINT `tb_produtos_ibfk_1` FOREIGN KEY (`id_loja`) REFERENCES `tb_lojas` (`id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+INSERT INTO tb_produtos (nome, descricao, preco, id_loja, img_path) VALUES
+("Bugatti Centodieci ", "This is a car.", 44000000, 1, "img/produtos/bugatti-centodieci.png"),
+("Bugatti Chiron", "This is a car.", 54000000, 1, "img/produtos/bugatti-chiron.png"),
+("Bugatti Divo", "This is a car.", 30800000, 1, "img/produtos/bugatti-divo.png"),
+("Bugatti La Voiture Noire", "This is a car.", 56898000, 1, "img/produtos/bugatti-lavoiturenoire.png"),
+("Bugatti Mistral", "This is a car.", 27500000, 1, "img/produtos/bugatti-mistral.png"),
+("Bugatti Veyron", "This is a car.", 16000000, 1, "img/produtos/bugatti-veyron.png"),
+("Ferrari Enzo", "This is a car.", 10500000, 2, "img/produtos/ferrari-enzo.png"),
+("Ferrari F40", "This is a car.", 10400000, 2, "img/produtos/ferrari-f40.png"),
+("Ferrari Porto Fino", "This is a car.", 3377500, 2, "img/produtos/ferrari-portofino.png"),
+("Ferrari Testarossa", "This is a car.", 600000, 2, "img/produtos/ferrari-testarossa.png"),
+("Honda S2000", "This is a car.", 349076, 3, "img/produtos/honda-s2000.png"),
+("Honda Civic Type R", "This is a car.", 19912, 3, "img/produtos/honda-civictyper.png"),
+("Honda NSX-R", "This is a car.", 408917, 3, "img/produtos/honda-nsx-r.png"),
+("Koenigsegg One 1", "This is a car.", 29000000, 4, "img/produtos/koenigsegg-one1.png"),
+("Koenigsegg Jesko", "This is a car.", 15500000, 4, "img/produtos/koenigsegg-jesko.png"),
+("Koenigsegg Regera ", "This is a car.", 13000000, 4, "img/produtos/koenigsegg-regera.png"),
+("Lamborghini Aventador", "This is a car.", 14400000, 5, "img/produtos/lamborghini-aventador.png"),
+("Lamborghini Diablo", "This is a car.", 2000000, 5, "img/produtos/lamborghini-diablo.png"),
+("Lamborghini Huracan", "This is a car.", 5300000, 5, "img/produtos/lamborghini-huracan.png"),
+("Lamborghini Murcielago", "This is a car.", 1166760, 5, "img/produtos/lamborghini-murcielago.png"),
+("Lamborghini Veneno", "This is a car.", 44500000, 5, "img/produtos/lamborghini-veneno.png"),
+("Lamborghini Countach", "This is a car.", 13257700, 5, "img/produtos/lamborghini-countach.png"),
+("Mazda Rx-7 FD", "This is a car.", 154590, 6, "img/produtos/mazda-rx7.png"),
+("Mazda Rx-5 Miata", "This is a car.", 73654, 6, "img/produtos/mazda-rx5miata.png"),
+("McLaren F1", "This is a car.", 99736000, 7, "img/produtos/mclaren-f1.png"),
+("McLaren Senna", "This is a car.", 6149140, 7, "img/produtos/mclaren-senna.png"),
+("McLaren P1", "This is a car.", 6482840, 7, "img/produtos/mclaren-p1.png"),
+("McLaren Speedtail", "This is a car.", 11469600, 7, "img/produtos/mclaren-speedtail.png"),
+("Mercedes C112", "This is a car.", 19947200, 8, "img/produtos/mercedes-c112.png"),
+("Mercedes CLK GTR", "This is a car.", 42387800, 8, "img/produtos/mercedes-clklmstarben.png"),
+("Mercedes S-Class Coupe", "This is a car.", 576723, 8, "img/produtos/mercedes-sclasscoupeconcepta.png"),
+("Mercedes SLR", "This is a car.", 1994720, 8, "img/produtos/mercedes-slrmclarenmansoryrenovatio.png"),
+("Mercedes AMG One", "This is a car.", 13713700, 8, "img/produtos/mercedes-one.png"),
+("Mitsubishi Eclipse 98", "This is a car.", 66764, 9, "img/produtos/mitsubishi-eclipse98.png"),
+("Mitsubishi Eclipse Spider", "This is a car.", 50124, 9, "img/produtos/mitsubishi-elipsespider.png"),
+("Mitsubishi Lancer Evo 8", "This is a car.", 92904, 9, "img/produtos/mitsubishi-lancerevo8.png"),
+("Mitsubishi Lancer GT", "This is a car.", 50643, 9, "img/produtos/mitsubishi-lancerevox.png"),
+("Nissan 180sx", "This is a car.", 172633, 10, "img/produtos/nissan-180x.png"),
+("Nissan 300zx", "This is a car.", 74432, 10, "img/produtos/nissan-300zx.png"),
+("Nissan 350z", "This is a car.", 170548, 10, "img/produtos/nissan-350z.png"),
+("Nissan GT-R", "This is a car.", 1253180, 10, "img/produtos/nissan-gtr.png"),
+("Nissan Silvia S15", "This is a car.", 136354, 10, "img/produtos/nissan-silvia.png"),
+("Nissan Skyline", "This is a car.", 1462620, 10, "img/produtos/nissan-skyline.png"),
+("Porsche 911", "This is a car.", 815000, 11, "img/produtos/porsche-911.png"),
+("Porsche 917k", "This is a car.", 69815200, 11, "img/produtos/porsche-917k.png"),
+("Porsche 918", "This is a car.", 7006450, 11, "img/produtos/porsche-918.png"),
+("Porsche Carrera GT", "This is a car.", 7978880, 11, "img/produtos/porsche-carreragt.png"),
+("Porsche Cayman GT4", "This is a car.", 743531, 11, "img/produtos/porsche-cayman.png"),
+("Porsche Taycan", "This is a car.", 629000, 11, "img/produtos/porsche-taycan.png"),
+("Subaru BRZ", "This is a car.", 139605, 12, "img/produtos/subaru-brz.png"),
+("Subaru Impreza WRX STI 1", "This is a car.", 179499, 12, "img/produtos/subaru-imprezawrxsti1.png"),
+("Subaru Impreza WRX STI 2", "This is a car.", 680962, 12, "img/produtos/subaru-imprezawrxsti2.png"),
+("Subaru Impreza WRX STI 4", "This is a car.", 308900, 12, "img/produtos/subaru-imprezawrxsti4.png"),
+("Toyota AE86 Trueno Corolla", "This is a car.", 149604, 13, "img/produtos/toyota-ae86truenocorolla.png"),
+("Toyota Celica", "This is a car.", 11365, 13, "img/produtos/toyota-celica.jpg"),
+("Toyota Supra Mk4", "This is a car.", 1465620, 13, "img/produtos/toyota-supramk4.png"),
+("Toyota GT86", "This is a car.", 134490, 13, "img/produtos/toyota-gt86.webp"),
+("BMW E36", "This is a car.", 244353, 14, "img/produtos/bmw-e36.png"),
+("BMW E30", "This is a car.", 359353, 14, "img/produtos/bmw-e30.png"),
+("BMW M5 E39", "This is a car.", 117164, 14, "img/produtos/bmw-m5e39.png"),
+("BMW 320i M", "This is a car.", 163965, 14, "img/produtos/bmw-320im.png"),
+("Pagani Utopia", "This is a car.", 12467000, 15, "img/produtos/pagani-utopia.png"),
+("Pagani Huayra", "This is a car.", 6981520, 15, "img/produtos/pagani-huayra.png"),
+("Pagani Zonda Cinque", "This is a car.", 8976240, 15, "img/produtos/pagani-zondacinque.png"),
+("Pagani Zonda Revolution", "This is a car.", 14461700, 15, "img/produtos/pagani-zondarevolution.png");

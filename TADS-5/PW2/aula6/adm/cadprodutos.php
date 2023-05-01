@@ -9,12 +9,24 @@
     
     $idloja = $manipula->getLojaIdByEmail($_COOKIE['email'])[0]['id'];
     
-    $nomeproduto = $_POST['txtNomeProduto'];
-    $descproduto = $_POST['txtDescricaoProduto'];
-    $precoproduto = $_POST['txtPrecoProduto'];
+    $nome = $_POST['nome'];
+    $preco = $_POST['preco'];
+    $velocidade = $_POST['velocidade'];
+    $cavalos = $_POST['cavalos'];
+    $zeroacem = $_POST['zeroacem'];
+    $quantidade = $_POST['quantidade'];
+    $nome_arquivo = $_FILES['image']['name'];
 
-    $manipula->setFields("id_loja,nome,descricao,preco");
-    $manipula->setDados("'$idloja', '$nomeproduto', '$descproduto', '$precoproduto'");
+    if(!empty($nome_arquivo)) {
+        $url_local = "img/produtos/".$nome_arquivo;
+        $url_local_salvo = "../img/produtos/".$nome_arquivo;
+        move_uploaded_file($_FILES['image']['tmp_name'], $url_local_salvo);
+    }else{
+        $url_local = "img/default_template.png";
+    }
+
+    $manipula->setFields("id_loja,nome,preco,img_path,velocidade,cavalos,zeroacem,quantidade");
+    $manipula->setDados("'$idloja', '$nome', '$preco', '$url_local', '$velocidade', '$cavalos', '$zeroacem', '$quantidade'");
 
     $manipula->insert();
 

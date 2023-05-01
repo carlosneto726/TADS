@@ -27,7 +27,7 @@
             </p>
         </div>
     </div>
-    <div id="liveAlertPlaceholder" class="position-fixed bottom-0 end-0"></div>
+    <div id="liveAlertPlaceholder" class="z-3 position-fixed bottom-0 end-0"></div>
 </div>
 
 <script>

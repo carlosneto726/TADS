@@ -3,6 +3,8 @@
     <center><p><h4>Aqui alguns exemplo de lojas parceiras.</h4></p></center>
 </div>
 
+
+
 <div class='grid-container'>
     <?php
         $busca = new manipular_dados();
@@ -11,16 +13,20 @@
         foreach($lojas_table as $loja){ ?>
         
             <div class='card' style='width: 18rem;'>
-            <div class='img'>
-                <img src='<?php echo $loja['img_path']; ?>' class='card-img-top' id="imagem" alt='card-img'>
+
+
+            <div class="img">
+                <img src='<?php echo $loja['img_path'];?>' id="imagemlogo">
             </div>
+
+
                 <div class='card-body'>
                     <h5 class='card-title'><?=$loja['nome']?></h5>
                     <p class='card-text'><?=$loja['descricao']?></p>
 
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Proutos
+                            Carros
                         </button>
                         <ul class="dropdown-menu">
                             <?php
@@ -32,10 +38,9 @@
                                             <div class="d-flex w-100 justify-content-between">
                                                 <h5 class="mb-1"><?= $produto['nome'] ?></h5>
                                             </div>
-                                            <p class="mb-1"> <?= $produto['descricao'] ?> </p>
-                                            <small><?= $produto['preco'] ?></small>
                                         </a>
-                                    </div>        
+                                    </div>
+                                    
                             <?php } ?>
                         </ul>
                     </div>
@@ -43,4 +48,3 @@
             </div>
     <?php } ?>
 </div>
-

@@ -7,16 +7,13 @@ body{
     background-color: #D5D0BC;
     color: #282A3A;
 }
-
 li a.nav-link, a.navbar-brand{
     color: #282A3A;
 }
-
 .card{
     color: #5c5c5c;
     background-color: #E5DFCD;
 }
-
 .carousel .carousel-inner .carousel-caption{
     color: #000000;
 }
@@ -24,11 +21,23 @@ li a.nav-link, a.navbar-brand{
     filter: invert(100%);
 }
 
-
-
 .produtos-input{
     all: unset;
 }
+
+
+#imagemlogo{
+    object-fit: scale-down;
+    width: 100% !important;
+    height: 150px !important;
+}
+#imagemcarro{
+    object-fit: cover;
+    width: 100% !important;
+    height: 150px !important;
+}
+
+
 
 input[type="file"] {
     display: none;
@@ -40,7 +49,6 @@ input[type="file"] {
     padding: 6px 12px;
     cursor: pointer;
 }
-
 
 .titulo-pagina{
     display: grid;
@@ -56,4 +64,5 @@ input[type="file"] {
     justify-content: center;
     align-items: center;
     gap: 50px;
+    font-family: 'Montserrat', sans-serif;
 }

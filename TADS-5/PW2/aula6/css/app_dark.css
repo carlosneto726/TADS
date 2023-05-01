@@ -21,17 +21,16 @@ li a.nav-link, a.navbar-brand{
     color: #000000;
 }
 
-.img{
-    min-height: 150px !important;
-    max-height: 150px !important;
+
+#imagemlogo{
+    object-fit: scale-down;
     width: 100% !important;
+    height: 150px !important;
 }
-#imagem{
+#imagemcarro{
     object-fit: cover;
     width: 100% !important;
     height: 150px !important;
-
-
 }
 
 .produtos-input{
@@ -51,9 +50,6 @@ input[type="file"] {
     cursor: pointer;
 }
 
-
-
-
 .titulo-pagina{
     display: grid;
     justify-content: center;
@@ -69,5 +65,4 @@ input[type="file"] {
     align-items: center;
     gap: 50px;
     font-family: 'Montserrat', sans-serif;
-    color: #47ADEA;
 }
