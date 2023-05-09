@@ -1,0 +1,101 @@
+body{
+    background-color: #E3E6E6;
+    color: #282A3A;
+}
+
+.navbar{
+    background-color: #131921;
+    color: #FFFFFF;
+}
+
+.navbar .navbar-brand, .navbar .nav-link{
+    color: #FFFFFF;
+    border: solid 1px #131921;
+}
+
+.navbar-brand:hover, .nav-link:hover{
+    color: #FFFFFF !important;
+    border-color:white;
+}
+
+
+
+.navbar-bottom{
+    background-color: #232F3E;
+    color: #FFFFFF;
+}
+.navbar-bottom .navbar-brand, .navbar-bottom .nav-link{
+    color: #FFFFFF;
+    border: solid 1px #232F3E;
+}
+.navbar-bottom .nav-link:hover{
+    color: #FFFFFF !important;
+    border-color:white;
+}
+
+
+.card{
+    color: #5c5c5c;
+    background-color: white;
+}
+
+.carousel .carousel-control-prev .carousel-control-prev-icon{
+    margin-top: -355px !important;
+    margin-left: 190px !important;
+}
+
+.carousel .carousel-control-next .carousel-control-next-icon{
+    margin-top: -355px !important;
+    margin-left: -190px !important;
+}
+
+.carousel .carousel-control-prev .carousel-control-prev-icon, .carousel .carousel-control-next .carousel-control-next-icon{
+    filter: invert(100%);
+}
+
+.produtos-input{
+    all: unset;
+}
+
+
+#imagem_produto{
+    object-fit: cover;
+    width: 100% !important;
+    height: 150px !important;
+}
+
+
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.titulo-pagina{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+.grid-container {
+    margin-top: 350px;
+    display: grid;
+    grid-template-columns: 350px 350px 350px 350px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
