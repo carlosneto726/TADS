@@ -14,7 +14,7 @@
     <link rel="icon" href="img/icons/amazon_a.svg">
     <title>AmazonClone.com.br | Tudo pra você, de A a Z.</title>
 </head>
-<body>
+<body id="body">
 
 
 

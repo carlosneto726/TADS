@@ -1,42 +1,105 @@
-CREATE TABLE produtos(
+CREATE TABLE tb_lojas(
 	id int NOT NULL AUTO_INCREMENT,
-	descricao varchar(255),
-	preco float,
-	qtd int,
-	status char,
-	url varchar(255),
+	nome varchar(255),
 
 	PRIMARY KEY(id)
 );
 
-CREATE TABLE usuarios(
+
+CREATE TABLE tb_usuarios(
 	id int NOT NULL AUTO_INCREMENT,
 	nome varchar(255),
+	email varchar(255),
 	senha varchar(255),
 
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE vendas(
-	id int NOT NULL AUTO_INCREMENT,
-	id_usuario int NOT NULL,
-	descricao varchar(255),
-	data date,
-	status char,
-
-	PRIMARY KEY	(id),
-	FOREIGN KEY(id_usuario) REFERENCES usuarios(id)
+CREATE TABLE tb_categorias(
+	nome varchar(255) NOT NULL,
+	PRIMARY KEY (nome)
 );
 
 
-CREATE TABLE item_venda(
+CREATE TABLE tb_produtos(
 	id int NOT NULL AUTO_INCREMENT,
-	id_venda int NOT NULL,
+	id_loja int NOT NULL,
+	titulo varchar(255),
+	descricao text,
+	estrelas float,
+	marca varchar(255),
+	preco float,
+	categoria varchar(255),
+	qtd int,
+	status char,
+	img_url varchar(255),
+
+	PRIMARY KEY(id),
+	FOREIGN KEY(id_loja) REFERENCES tb_lojas(id),
+	FOREIGN KEY(categoria) REFERENCES tb_categorias(nome)
+
+);
+
+
+CREATE TABLE tb_itens_venda(
+	id int NOT NULL AUTO_INCREMENT,
 	id_produto int NOT NULL,
 	qtd int NOT NULL,
 
 	PRIMARY KEY (id),
-	FOREIGN KEY (id_venda) REFERENCES vendas(id),
-	FOREIGN KEY (id_produto) REFERENCES produtos(id)
+	FOREIGN KEY (id_produto) REFERENCES tb_produtos(id)
 );
 
+
+CREATE TABLE tb_vendas(
+	id int NOT NULL AUTO_INCREMENT,
+	id_usuario int NOT NULL,
+	id_itens_venda int NOT NULL,
+	id_loja int NOT NULL,
+	preco_total float,
+
+	data date,
+	status char,
+
+	PRIMARY KEY	(id),
+	FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id),
+	FOREIGN KEY(id_itens_venda) REFERENCES tb_itens_venda(id),
+	FOREIGN KEY(id_loja) REFERENCES tb_lojas(id)
+
+);
+
+
+
+INSERT INTO tb_lojas(nome) VALUES
+('Amazon'), 	
+('Riachuelo'), 	
+('Google'), 	
+('Sansung'), 	
+('PLaystation'),
+('Philco'), 	
+('Barilla'), 	
+('Eletrolux'), 	
+('LG'), 		
+('HP'); 			
+
+INSERT INTO tb_usuarios(nome, email, senha) VALUES
+('Administrador', 'adm@adm', 'adm'),
+('Carlos', 'carlos@123', '123'),
+('Pedro', 'pedro@123', '123');
+
+INSERT INTO tb_categorias (nome) VALUES
+('Cozinha'),
+('Tecnoligia'),
+('Games'),
+('Roupas'),
+('Celulares'),
+('Acessorios');
+
+INSERT INTO tb_produtos(id_loja, titulo,descricao,estrelas,marca,preco,categoria,qtd,status,img_url) VALUES
+(5, 'Controle de PS4 Dualshok 4','Contole Dualshok 4 para Playstation 4 e PC',4.5,'PlayStation', 249.99,'Games',2049,'0','img/produtos/controller_ps4.jpg'),
+(5, 'Controle de PS5 Dualshok 5','Contole Dualshok 5 para Playstation 5 PLaystation 4 e PC',4.0,'PlayStation', 549.99,'Games',876,'0','img/produtos/controller_ps5.jpg'),
+(6, 'Cafeteira Philco','Cafeteira Philco que faz café em 2 minutos com capacidade de 2L e quente e frio',5.0,'Philco', 689.99,'Cozinha',600,'0','img/produtos/cozinha_cafeteiraphilco.jpg'),
+(7, 'Macarrão Spaghetti Barilla','Spaguetti 500g Barilla serve 5 pessoas',4.0,'Barilla', 9.59,'Cozinha', 20000,'0','img/produtos/cozinha_macarrao.jpg'),
+(3, 'Google Chromecast 3','Transmita seu conteúdo de onde e quando quiser | Streaming em Full HD', 5.0,'Google', 219,'Tecnoligia',15000,'0','img/produtos/tech_chromecast.jpg'),
+(1, 'Echo Dot (4ª Geração)','Smart Speaker com Alexa | Música, informação e Casa Inteligente - Cor Preta',5.0,'Amazon', 269, 'Tecnoligia', 4562,'0','img/produtos/tech_echodot.jpg'),
+(1, 'Suporte de Notebook','Suporte Uptable OCTOO, Preto', 5.0,'Amazon', 39.99,'Acessorios',15000,'0','img/produtos/tech_suportenotebook.jpg');

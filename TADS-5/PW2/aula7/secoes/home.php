@@ -1,31 +1,22 @@
+
 <div>
 
     <div id="carouselExampleCaptions" class="z-n1 position-absolute carousel slide fixed-top" style="margin-top:100px;">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <center><img src="img/carousel/img2.jpg" class="d-block" style="width:1500px;"></center>
-                <div class="carousel-caption d-none d-md-block">
-                </div>
+                <center><img src="img/carousel/img2.jpg" class="d-block" style="width:1500px; -webkit-mask-image: linear-gradient(to top, transparent 20%, white 70%);"></center>
             </div>
             <div class="carousel-item">
-            <center><img src="img/carousel/img1.jpg" class="d-block" style="width:1500px;"></center>
-                <div class="carousel-caption d-none d-md-block">
-                </div>
+                <center><img src="img/carousel/img1.jpg" class="d-block" style="width:1500px; -webkit-mask-image: linear-gradient(to top, transparent 20%, white 70%);"></center>
             </div>
             <div class="carousel-item">
-            <center><img src="img/carousel/img3.jpg" class="d-block" style="width:1500px;"></center>
-                <div class="carousel-caption d-none d-md-block">
-                </div>
+                <center><img src="img/carousel/img3.jpg" class="d-block" style="width:1500px; -webkit-mask-image: linear-gradient(to top, transparent 20%, white 70%);"></center>
             </div>
             <div class="carousel-item">
-            <center><img src="img/carousel/img4.jpg" class="d-block" style="width:1500px;"></center>
-                <div class="carousel-caption d-none d-md-block">
-                </div>
+                <center><img src="img/carousel/img4.jpg" class="d-block" style="width:1500px; -webkit-mask-image: linear-gradient(to top, transparent 20%, white 70%);"></center>
             </div>
             <div class="carousel-item">
-            <center><img src="img/carousel/img5.jpg" class="d-block" style="width:1500px;"></center>
-                <div class="carousel-caption d-none d-md-block">
-                </div>
+                <center><img src="img/carousel/img5.jpg" class="d-block" style="width:1500px; -webkit-mask-image: linear-gradient(to top, transparent 20%, white 70%);"></center>
             </div>
         </div>
 
@@ -38,31 +29,71 @@
     </div>
     
 
+
+
+
     <div class="grid-container">
+        <?php 
 
-    <?php for($i = 0; $i < 19; $i++){?>
-    
-        <div class='card border-light rounded-0' style='width: 350px; height: 420px;'>
-            <div class='card-body'>
+            $consulta = new manipular_dados();
+            $consulta->setTable("tb_produtos");
+            foreach($consulta->getAllDataTable() as $produto){
+        ?>
 
-                <h4>Alguma coisa...</h4>
+            <div class='card border-light rounded-0' style='width: 350px; height: 420px;'>
+                <div class='card-body'>
 
-                <div class='img'>
-                    <img src="img/default_template.png" id="imagem_produto">
+                    <h5 class="fw-bold" style="font-family: sans-serif !important; color: black;"><?= $produto['titulo']?></h5>
+
+                    <div class='img'>
+                        <img src="<?= $produto['img_url'] ?>" id="imagem_produto" style="height: 230px !important;">
+                    </div>
+
+                    <br>
+
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><?= $produto['preco']?></h6>
+                    <p class="card-text text-truncate"><?= $produto['descricao']?></p>
+                    
                 </div>
+            </div>
 
-                <br>
+        <?php }
+        ?>
 
-                <h6 class="card-subtitle mb-2 text-body-secondary">Preço</h6>
-                <p class="card-text">Mais detalhes</p>
-                <a href="?secao=teste" class="card-link">Um link</a>
+    </div>
+
+
+
+    <?php 
+        $categorias = new manipular_dados();
+        $categorias->setTable("tb_categorias");
+        foreach($categorias->getAllDataTable() as $categoria){
+    ?>
+
+        <div style="max-width: 1460px; width: auto; height: 285px; margin-left: 220px; margin-top: 20px; background-color: white;">
+            <h4 class="fw-bold mt-2 ms-2"><?= $categoria['nome'] ?></h4>
+            <div class="grid-container-categoria">
+                <?php 
+
+                    $produtos = new manipular_dados();
+                    $produtos->setTable("tb_produtos");
+                    foreach($produtos->getProdutosPorCategoria($categoria['nome']) as $produto){
+                ?>
                 
+                    <div class='img' style='max-width: 270px; max-height: 200px; width: auto; height: auto;'>
+                        <a href="?secao=produto&produtoid=<?= $produto['id']?>&produtocategoria=<?= $produto['categoria']?>"><img src="<?= $produto['img_url'] ?>" id="imagem_produto"></a>
+                    </div>
+
+                <?php }
+                ?>
+
             </div>
         </div>
 
-    <?php }?>
+    <?php
+    }
+    ?>
 
-    </div>
 
 
     

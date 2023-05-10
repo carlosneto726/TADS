@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-$isset = IsSet($_COOKIE['login']);
+$isset = IsSet($_COOKIE['email']);
 
 ?>
 
@@ -38,9 +38,30 @@ $isset = IsSet($_COOKIE['login']);
                 </div>
             </div>
             
-            <div class="nav-item ms-2">
-                <a class="nav-link fw-bold" aria-current="page" href="adm/login/login.php">Login</a>
+            <?php if($isset){?>
+
+
+            <div class="dropdown nav-item ms-2">
+                <a class="nav-link fw-bold dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <?php echo "Olá ".explode('@', $_COOKIE['email'], -1)[0]; ?>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Sua conta</a></li>
+                    <li><a class="dropdown-item" href="#">Seus pedidos</a></li>
+                    <li><a class="dropdown-item" href="adm/login/sair.php">Sair</a></li>
+                </ul>
             </div>
+
+
+
+            <?php }else{ ?>
+
+
+                <div class="nav-item ms-2">
+                    <a class="nav-link fw-bold" aria-current="page" href="<?php echo "adm/login/login.php"; ?>">Login</a>
+                </div>
+
+            <?php } ?>
 
             <div class="nav-item ms-2">
                 <a class="nav-link fw-bold" aria-current="page" href="#">Pedidos</a>

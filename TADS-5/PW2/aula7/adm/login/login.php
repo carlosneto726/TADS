@@ -55,29 +55,7 @@
         </form>
     </center>
 
-    <img src="../img/rodape_login.png" alt="">
+    <img src="../../img/rodape_login.png" alt="">
 
-    <script>
-        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-        const appendAlert = (message, type) => {
-        const wrapper = document.createElement('div')
-            wrapper.innerHTML = [
-                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-                `   <div>${message}</div>`,
-                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-                '</div>'
-            ].join('')
 
-            alertPlaceholder.append(wrapper)
-        }
-
-        const alertTrigger = "<?php echo $_SESSION['jsAlert']; ?>";
-        if (alertTrigger != "none") {
-            appendAlert(alertTrigger, 'warning');
-        }
-    </script>
-
-    <?php
-    $_SESSION['jsAlert'] = "none";
-    ?>
 </body>
