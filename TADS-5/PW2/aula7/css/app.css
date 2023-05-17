@@ -117,3 +117,15 @@ input[type="file"] {
     
     font-family: "Amazon Ember",Arial,sans-serif;
 }
+
+
+.carrinho{
+    background-color: white;
+    width: 1280px;
+    margin-top: 200px;
+    margin-left: 150px;
+    padding: 20px;
+
+
+
+}

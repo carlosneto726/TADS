@@ -68,7 +68,7 @@ $isset = IsSet($_COOKIE['email']);
             </div>
 
             <div class="nav-item ms-2">
-                <a class="nav-link fw-bold" aria-current="page" href="#"><img src="img/icons/cart.svg"> Carrinho</a>
+                <a class="nav-link fw-bold" aria-current="page" href="?secao=carrinho"><img src="img/icons/cart.svg"> Carrinho</a>
             </div>
 
         </div>

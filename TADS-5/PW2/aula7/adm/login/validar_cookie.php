@@ -16,6 +16,7 @@
         header("Location: ../../index.php");
         exit();
     }else{
+        $_SESSION['email'] = $email;
         setcookie("email", $email, time() + (86400 * 30), "/");  
         header("Location: ../../index.php");
         exit();

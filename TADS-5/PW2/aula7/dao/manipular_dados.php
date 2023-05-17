@@ -103,10 +103,42 @@ class manipular_dados extends conexao{
     }
 
 
+    public function getCarrinho($id){
+
+        $this->sql = "SELECT * FROM tb_carrinho WHERE id_usuario = $id";
+        $this->qr = self::exeSQL($this->sql);
+
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+        
+        return $listaresp;
+    }
 
 
 
+    public function dellProdutoCarrinho($id_carrinho){
+        $this->sql = "DELETE FROM tb_carrinho WHERE id = $id_carrinho;";
+        $this->qr = self::exeSQL($this->sql);
+    }
 
+
+
+    public function getIdByEmail($email){
+
+        $this->sql = "SELECT * FROM tb_usuarios WHERE email = '".$email."'";
+        $this->qr = self::exeSQL($this->sql);
+        
+        $listaresp = array();
+
+        while($row = @mysqli_fetch_assoc($this->qr)){
+            array_push($listaresp, $row);
+        }
+        
+        return $listaresp;
+    }
 
 
 

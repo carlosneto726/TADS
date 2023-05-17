@@ -44,25 +44,30 @@ $produto = $manipula->getProdutosPorID($_GET['produtoid']);
         </div>
 
         <div class="ms-2 me-2 rounded-2" style="border:solid 1px #D5D9D9; width: 245px; height: 530px;">
-            <div class="mt-2 ms-2">R$<span class="fs-5 fw-bold"><?= number_format($produto[0]['preco'],2,",",".");?></span></div>
-            <div class="mt-2 ms-2"><span class="fs-6">Entrega R$ 23,51: 18 - 23 de Maio.</span></div>
-            <div class="mt-2 ms-2 mb-3">
-                <span class="fs-4"><?php if($produto[0]['qtd'] > 0){echo "<span class='text-success'>Em estoque</span>";}else{echo "<span class='text-danger'>Indisponivel</span>";}?></span>
-                <br><br>
-                Quantidade: <input type="number" style="width: 75px;">
+            <form action="adm/carrinho/adicionar_carrinho.php" method="POST">
 
-            </div>
-            <br>
+                <div class="mt-2 ms-2">R$<span class="fs-5 fw-bold"><?= number_format($produto[0]['preco'],2,",",".");?></span></div>
+                <div class="mt-2 ms-2"><span class="fs-6">Entrega R$ 23,51: 18 - 23 de Maio.</span></div>
+                <div class="mt-2 ms-2 mb-3">
+                    <span class="fs-4"><?php if($produto[0]['qtd'] > 0){echo "<span class='text-success'>Em estoque</span>";}else{echo "<span class='text-danger'>Indisponivel</span>";}?></span>
+                    <br><br>
+                    Quantidade: <input type="number" style="width: 75px;" name="qtd" value="1">
 
-            <center>
-                <button class="btn btn rounded-5" style="background-color:#FFD814; color:black; width: 200px;" type="submit">Adicionar ao carrinho</button>
-                <button class="btn btn rounded-5 mt-3" style="background-color:#FFA41C; color:black; width: 200px;" type="submit">Comprar agora</button>
+                    <input name="id_produto" value="<?= $produto[0]['id'] ?>" hidden>
+
+                </div>
                 <br>
-                <br>
-                Enviado por <?= $manipula->getLojaByProdutoID($produto[0]['id_loja'])[0]['nome']?><br>
-                Vendido por <?= $manipula->getLojaByProdutoID($produto[0]['id_loja'])[0]['nome']?><br>
-            </center>
-            
+
+                <center>
+                    
+                    <button class="btn btn rounded-5" style="background-color:#FFD814; color:black; width: 200px;" type="submit">Adicionar ao carrinho</button>
+                    <button class="btn btn rounded-5 mt-3" style="background-color:#FFA41C; color:black; width: 200px;" type="submit">Comprar agora</button>
+                    <br>
+                    <br>
+                    Enviado por <?= $manipula->getLojaByProdutoID($produto[0]['id_loja'])[0]['nome']?><br>
+                    Vendido por <?= $manipula->getLojaByProdutoID($produto[0]['id_loja'])[0]['nome']?><br>
+                </center>
+            </form>    
         </div>
     </div>
 
