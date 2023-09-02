@@ -1,2 +1,1 @@
-# ED2
-Códigos construídos ao longo da disciplina
+### Coódigos e projetos referentes a matéria de Estrutura de Dados Feitos com Python e Jupyter
